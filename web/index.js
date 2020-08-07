@@ -5,7 +5,6 @@ var bcrypt = require('bcryptjs');
 var salt = bcrypt.genSaltSync(10);
 var session = require('express-session');
 var passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20');
 var MongoDBStore = require('connect-mongodb-session')(session);
 var LocalStrategy = require('passport-local').Strategy;
 var app = express();
@@ -20,6 +19,7 @@ var store = new MongoDBStore({
 app.use(express.static("templates"));
 app.set('view engine','ejs');
 app.set('views', __dirname + '/templates');
+app.set('views',__dirname);
 
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
@@ -90,7 +90,7 @@ app.get("/register",function(req,res){
   if(req.isAuthenticated()){
 		res.redirect('/');
 	}else{
-		res.sendFile(__dirname+"/templates/register.html");
+		res.sendFile(__dirname+"/register.html");
 	}
 });
 
@@ -193,4 +193,3 @@ app.set('port',process.env.PORT||5000)
 
 var server = app.listen(app.get('port'),function(){
 console.log("SERVER STARTED SUCCESSFULLY................")
-})
