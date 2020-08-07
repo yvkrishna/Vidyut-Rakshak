@@ -189,7 +189,8 @@ function authenticationMiddleware() {
 	}
 } 
 
-app.set('port',process.env.PORT||5000)
+app.set('port',process.env.PORT||8000)
 
 var server = app.listen(app.get('port'),function(){
-console.log("SERVER STARTED SUCCESSFULLY................")
+console.log("server started at port "+app.get('port').toString())
+})
