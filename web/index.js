@@ -9,7 +9,7 @@ var MongoDBStore = require('connect-mongodb-session')(session);
 var LocalStrategy = require('passport-local').Strategy;
 var app = express();
 var flash=require("connect-flash");
-const db = mongojs("mongodb://igkishore:igkigk1234@igk-shard-00-02.l0g6f.mongodb.net:27017s/vidyutRakshak?ssl=true&replicaSet=igk-shard-0&authSource=admin",["members"]);
+const db = mongojs("mongodb://igkishore:igkigk1234@igk-shard-00-02.l0g6f.mongodb.net:27017s/vidyutRakshak?ssl=true&replicaSet=igk-shard-0&authSource=admin",["members","errorLocation"]);
 
 var store = new MongoDBStore({
   uri: 'mongodb://igkishore:igkigk1234@igk-shard-00-02.l0g6f.mongodb.net:27017s/vidyutRakshak?ssl=true&replicaSet=igk-shard-0&authSource=admin',
@@ -128,6 +128,37 @@ app.get('/blub.jpg',function(req,res){
 	}
 })
 
+app.get("/checkAnomly/:voltVal/:currentVal",function(req,res){
+	const MODEL_URL = '/model.json';
+    const model = await tf.loadLayersModel(MODEL_URL);
+    //console.log(model.summary());
+    const input = tf.tensor2d([10.0], [1,1]);
+    var result = model.predict(input);
+    if(result>0.5){
+		// anomly detected
+		// result = 1;
+		// user should then send the location to route '/sendLoc'
+		res.send("anomly detected");
+	}else{
+		// casual thing ( not an anomly )
+		// result = 0;
+		res.send("no anomly detected");
+	}
+})
+
+app.get('/sendLoc/:lat/:lng/:errName/:errDisc',function(req,res){
+	var error = {
+		latitude:req.params.lat,
+		longitude:req.params.lng,
+		errName:req.params.errName,
+		errDisc:req.params.errDisc
+	}
+	db.errorLocation.insert(error,function(err,data){
+		if(err) throw err
+		res.send("Thank you. Your Location has been recorded")
+	})
+})
+
 app.get('/profile.svg',function(req,res){
 	if(req.isAuthenticated()){
 		res.sendFile(__dirname+"/profile.svg")
@@ -148,7 +179,7 @@ app.get("/",function(req,res){
 	if(req.isAuthenticated()){
 
   //  get data from database
-    db.errors.find({},function(err,errorData){
+    db.errorLocation.find({},function(err,errorData){
       res.render('index',{data:[
         {errors:errorData},
         {user_details:req.user}
