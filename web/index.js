@@ -44,11 +44,9 @@ passport.use(new LocalStrategy({
 	const db = mongojs("mongodb://igkishore:igkigk1234@igk-shard-00-02.l0g6f.mongodb.net:27017s/vidyutRakshak?ssl=true&replicaSet=igk-shard-0&authSource=admin",["members"]);
 
 	var object={
-		email:username,
-	} 
-
-	db.members.find(object,function(err,data)
-	{
+		id:username,
+	}
+	db.members.find(object,function(err,data){
 		if(err)
 		{
 			console.log(err);
@@ -76,6 +74,34 @@ passport.use(new LocalStrategy({
   }
 ));
 
+app.get('/account',function(req,res){
+	if(req.isAuthenticated()){
+		db.members.find({email:req.user.email},function(err,userdata){
+			res.render('profile',{data:[{userdata}]});
+		})
+	}else{
+		res.redirect('/');
+	}
+});
+
+app.post("/save-basic-profile",function(req,res){
+	if(req.isAuthenticated()){
+			var obj={
+					name:req.body.fname,
+					email:req.body.username,
+					mobile:req.body.mobile
+				}
+			db.members.update({email:req.user.email,id:req.user.id},{$set:{name:obj.name,email:req.body.username,mobile:req.body.mobile}},function(err,data){
+					req.user["email"] = req.body.username;
+					req.user["name"] = req.body.fname;
+					req.user["mobile"] = req.body.mobile
+					res.redirect("/account");
+			})
+		}else{
+			res.redirect('/login');
+		}
+	});
+
 app.get("/login",function(req,res){
 	if(req.isAuthenticated()){
 		res.redirect('/');
@@ -85,6 +111,30 @@ app.get("/login",function(req,res){
 		res.render("login",{data:error});
 	}
 });
+
+app.get('/navigator.svg',function(req,res){
+	if(req.isAuthenticated()){
+		res.sendFile(__dirname+"/navigator.svg")
+	}else{
+		res.redirect('/login');
+	}
+})
+
+app.get('/blub.jpg',function(req,res){
+	if(req.isAuthenticated()){
+		res.sendFile(__dirname+"/blub.jpg");
+	}else{
+		res.redirect('/login');
+	}
+})
+
+app.get('/profile.svg',function(req,res){
+	if(req.isAuthenticated()){
+		res.sendFile(__dirname+"/profile.svg")
+	}else{
+		res.redirect('/login');
+	}
+})
 
 app.get("/register",function(req,res){	
   if(req.isAuthenticated()){
@@ -110,6 +160,12 @@ app.get("/",function(req,res){
   }
 });
 
+app.get('/signout',function(req,res){
+	req.logout()
+	req.session.destroy();
+	res.redirect('/login');
+})
+
 app.post('/login-done',passport.authenticate('local',{
 	successRedirect : '/',
 	failureRedirect : '/login',
@@ -128,30 +184,32 @@ app.post("/register-done",function(req,res){
 						email:req.body.username,
 						password:hash,
 						id:req.body.id,
-            mobile:req.body.mobile
+            			mobile:req.body.mobile
 					}
 					var checkobj={
 						id:req.body.id,
-            name:req.body.name,
-            mobile:req.body.mobile
+						name:req.body.fullname,
+						mobile:req.body.mobile
 					}
-					db.members.find(checkobj,function(err,data){
+					console.log(checkobj);
+					db.members.findOne(checkobj,function(err,data){
+						console.log(data);
 						if(err)
 						{
 							console.log("err with members");
 						}
 						else
 						{
-							if(data.length>0)
+							if(data != null)
 							{ 
-								res.send("user already exists");
+								db.members.update(data,{$set:{password:hash,email:req.body.username}},function(err,data){
+									if(err) throw err
+									res.redirect("/");
+								})
 							}
 							else
 							{
-								db.members.insert(obj,function(err,data){
-								if(err) throw err
-									res.redirect("/");
-								});
+								res.send("Sorry You are not an employee of the Electrical Department");
 							}
 
 						 }

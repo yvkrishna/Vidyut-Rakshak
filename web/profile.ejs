@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Page</title>
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/dacf88b734.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body {
+    font-family: 'Dosis', sans-serif;
+    font-weight: 400;
+}
+.sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: -52px;
+      background-color: turquoise;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: teal;
+      display: block;
+      transition: 0.3s;
+      margin-left: 30px;
+    }
+    .nav_img{
+        width: 68%;
+        position: absolute;
+        left: 24%;
+        bottom: 20px;
+    }
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+
+    .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+    .navitem{
+		justify-content: center;
+		display: flex!important;
+    	margin-left: 5px!important;
+	}
+    .font-size-29{
+        font-size: 29px;
+    }
+    .projtitle{
+        font-weight: 500!important;
+    }
+    ::-webkit-scrollbar{
+        width: 0;
+        }
+    @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+    }
+</style>
+</head>
+<body>
+
+<div class="alert alert-info alert-dismissible fade show shadow p-3 mb-5 rounded" role="alert">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2 col-sm-2 col-2">
+        <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/" class="navitem">Home</a>
+        <a href="/about" class="navitem">About</a>
+        <a href="/account" class="navitem">My Account</a>
+        <a href="/signout" class="navitem">Sign Out</a>
+        <img src="navigator.svg" class="nav_img">
+      </div>
+      <span style="font-size:30px;cursor:pointer" class="icon" onclick="openNav()">
+      &#9776;</span>
+      </div>
+      <div class="col-md-6 col-sm-6 col-12">
+			  <h4 class="alert-heading dosis500">Welcome <%= data[0].userdata[0].name %> !!!</h4>
+			  <p class="bd-lead font-weight-lighter dosis500">Here are the details of the fault lines.</p>
+			  <hr>
+			  <p>You can check the details of the faults present in your nearby area.</p>
+			</div>
+			<div class="col-md-4 col-sm-4 col-0">
+				<img src="blub.jpg" style="width: 100%;">
+			</div>
+  </div>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-md-4 col-sm-4 col-1"></div>
+  <div class="col-md-4 col-sm-4 col-10">
+    <h4 class="font-weight-light lead projtitle font-size-29">My Account Details</h4>
+  </div>
+  <div class="col-md-4 col-sm-4 col-1"></div>
+</div>
+
+  <div class="row">
+  <div class="col-md-2 col-sm-2 col-1"></div>
+  <div class="col-md-7 col-sm-7 col-10">
+    <form action="/save-basic-profile" method="POST">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-6">
+                <div class="form-group">
+                    <label for="exampleInputFullname" class="lead">Full Name</label>
+                    <input type="text" class="form-control" id="exampleInputFullname" required name="fname"
+                    value= <%- JSON.stringify(data[0].userdata[0].name) %> >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputFullname" class="lead">Email</label>
+                    <input type="text" class="form-control" id="exampleInputFullname" required name="username"
+                    value= <%- JSON.stringify(data[0].userdata[0].email) %> >
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-6">
+                <div class="form-group">
+                    <label for="exampleInputFullname" class="lead">mobile</label>
+                    <input type="text" class="form-control" id="exampleInputFullname" required name="mobile"
+                    value= <%- JSON.stringify(data[0].userdata[0].mobile) %> >
+                </div>
+            </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+  </div>
+  <div class="col-md-3 col-sm-3 col-1"></div>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('/sw.js')
+  }
+</script>
+<script>
+
+var user_data = <%- JSON.stringify(data[0].userdata[0]) %>;
+
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+
+
+
+</script>
+
+</body>
+</html>

@@ -39,7 +39,7 @@
 			<div class="col-1 col-md-1 col-sm-1"></div>	
 			<div class="col-10 col-md-5 col-sm-5">
 					<div class="d-flex justify-content-center">
-						<img src="profile.svg" class="img2">
+						<img src="profile.svg" alt="avatar" class="img2">
 					</div>
 					<br>
 					<div class="d-flex justify-content-center">
@@ -50,32 +50,16 @@
 					</div>
 					<br>
 					<div>
-						<form action="/register-done" method="POST">
-							<div class="row">
-								<div class="col-md-6 col-sm-6 col-6">
-									<div class="form-group">
-										<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name" name="fullname">
-									  </div>
-									   <div class="form-group">
-										<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter ID" name="id">
-									  </div>
-									  <div class="form-group">
-										<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Mobile number" name="mobile">
-									  </div>
-								</div>
-								<div class="col-md-6 col-sm-6 col-6">
-									<div class="form-group">
-										<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="username">
-									  </div>
-									  <div class="form-group">
-										<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password_1">
-									  </div>
-									  <div class="form-group">
-										<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password" name="password_2">
-									  </div>
-								</div>
+                        <form action="/login-done" method="POST" name="myform">
+							<div class="form-group">
+								<input type="text" class="form-control" name="username" aria-describedby="emailHelp" placeholder="Enter Id">
 							</div>
-						  <button type="submit" class="btn btn-primary" value="Signup">Signup</button>
+							  <div class="form-group">
+								<input type="password" class="form-control" id="password" name="password" placeholder="Password">
+							  </div>	
+							  <button type="submit" class="btn btn-primary" value="submit" onclick="validate()">Login</button>
+							<br><br>
+						  <small>Don't have an Account <a href="/register">Signup</a></small>
 						</form>
 					</div>
 			</div>
