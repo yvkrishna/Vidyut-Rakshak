@@ -10,6 +10,9 @@ var LocalStrategy = require('passport-local').Strategy;
 var app = express();
 var flash=require("connect-flash");
 const db = mongojs("mongodb://igkishore:igkigk1234@igk-shard-00-02.l0g6f.mongodb.net:27017s/vidyutRakshak?ssl=true&replicaSet=igk-shard-0&authSource=admin",["members","errorLocation"]);
+const tf = require('@tensorflow/tfjs');
+const path = require('path');
+
 
 var store = new MongoDBStore({
   uri: 'mongodb://igkishore:igkigk1234@igk-shard-00-02.l0g6f.mongodb.net:27017s/vidyutRakshak?ssl=true&replicaSet=igk-shard-0&authSource=admin',
@@ -128,22 +131,36 @@ app.get('/blub.jpg',function(req,res){
 	}
 })
 
-app.get("/checkAnomly/:voltVal/:currentVal",function(req,res){
-	const MODEL_URL = '/model.json';
-    const model = await tf.loadLayersModel(MODEL_URL);
-    //console.log(model.summary());
-    const input = tf.tensor2d([10.0], [1,1]);
-    var result = model.predict(input);
-    if(result>0.5){
-		// anomly detected
-		// result = 1;
-		// user should then send the location to route '/sendLoc'
-		res.send("anomly detected");
+app.get('/model.json',function(req,res){
+	if(req.isAuthenticated()){
+		res.sendFile(__dirname+"/model.json");
 	}else{
-		// casual thing ( not an anomly )
-		// result = 0;
-		res.send("no anomly detected");
+		res.redirect('/login');
 	}
+})
+
+app.get("/checkAnomly/:voltVal/:currentVal", async function(req,res){
+	// const MODEL_URL = './model.json';
+	URL_PATH = path.resolve(__dirname,"model.json");
+	console.log('file://'+URL_PATH);
+	try{
+		const model = await tf.loadLayersModel('file://'+URL_PATH);
+		const input = tf.tensor2d([req.params.voltVal,req.params.currentVal], [1,2]);
+		var result = model.predict(input);
+		if(result>0.5){
+			// anomly detected
+			// result = 1;
+			// user should then send the location to route '/sendLoc'
+			res.send("anomly detected");
+		}else{
+			// casual thing ( not an anomly )
+			// result = 0;
+			res.send("no anomly detected");
+		}
+    }catch(error){
+		console.log('problem in loading the model');
+		res.send("could not able to access the model.")
+    }
 })
 
 app.get('/sendLoc/:lat/:lng/:errName/:errDisc',function(req,res){
@@ -155,7 +172,7 @@ app.get('/sendLoc/:lat/:lng/:errName/:errDisc',function(req,res){
 	}
 	db.errorLocation.insert(error,function(err,data){
 		if(err) throw err
-		res.send("Thank you. Your Location has been recorded")
+		res.send("Thank you. Your Error has been recorded")
 	})
 })
 
@@ -222,9 +239,7 @@ app.post("/register-done",function(req,res){
 						name:req.body.fullname,
 						mobile:req.body.mobile
 					}
-					console.log(checkobj);
 					db.members.findOne(checkobj,function(err,data){
-						console.log(data);
 						if(err)
 						{
 							console.log("err with members");
