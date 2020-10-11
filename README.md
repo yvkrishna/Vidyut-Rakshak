@@ -7,14 +7,17 @@
 
 <h3 align="center">Optical Character Recognition (OCR)</h3>
 
-## Table Of Contents
-- [Dependencies](#dependencies)
-- [What's included](#whats-included)
-- [Image Dataset](#image-dataset)
-- [Architecture](#architecture)
-- [References](#references)
-- [The Web-App](#The-Web-App)
+## FAULT LINE DETECTION IN TRANSMISSION SYSTEM
 
+#Team Abyudaya:
+
+We are team Abhudaya from  Amrita Vishwa Vidyapeetham,Kollam currently pursuing  Electronics and Communication Engineering.
+
+# Team :
+ Esarapu Dilip Vignesh
+ Vedhakrishna  Yarasuri
+ Dhumsapuram Saikrishna Reddy
+ Gowtham Kishore Indukuri
 ## Dependencies
 <p>This current repo requires</p> 
     - Python Dependencies
@@ -167,18 +170,10 @@ Team-Abhyudaya
 
 
 
- FAULT LINE DETECTION IN      TRANSMISSION  SYSTEM
 
-THE TEAM:
- Esarapu Dilip Vignesh
- Vedhakrishna  Yarasuri
- Dhumsapuram Saikrishna Reddy
- Gowtham Kishore Indukuri
 
-TEAM INTRO:
 
-We are team Abhudaya from  Amrita Vishwa Vidyapeetham,Kollam
-currently pursuing  Electronics and Communication Engineering.
+
 
 ABOUT DOCUMENTATION:
 
