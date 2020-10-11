@@ -20,7 +20,7 @@ We are team Abhudaya from  Amrita Vishwa Vidyapeetham,Kollam currently pursuing 
 
 
 # ABOUT DOCUMENTATION: 
-          This documentation describes the solution we have answered for detecting the faulty lines in transmission line systems. We have a good and better optimal solution to detect the system. We had worked out and designed a better system implementation used to sort out the problem by using affordable circuit design interfacing with user friendly  web applications deployed with ML integrated techniques, and data transforming through better communication systems.
+This documentation describes the solution we have answered for detecting the faulty lines in transmission line systems. We have a good and better optimal solution to detect the system. We had worked out and designed a better system implementation used to sort out the problem by using affordable circuit design interfacing with user friendly  web applications deployed with ML integrated techniques, and data transforming through better communication systems.
 
 
 
