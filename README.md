@@ -5,9 +5,8 @@
     <img src="https://www.thinkright.me/wp-content/uploads/2018/11/28.png" alt="OCR" width="200"  height="165">
 </p>
 
-<h3 align="center">Optical Character Recognition (OCR)</h3>
+<h3 align="center">FAULT LINE DETECTION IN TRANSMISSION SYSTEM</h3>
 
-## FAULT LINE DETECTION IN TRANSMISSION SYSTEM
 
 
 # Team Abyudaya:
@@ -21,25 +20,22 @@ We are team Abhudaya from  Amrita Vishwa Vidyapeetham,Kollam currently pursuing 
        
 
 
+# ABOUT DOCUMENTATION: 
+          This documentation describes the solution we have answered for detecting the faulty lines in transmission line systems. We have a good and better optimal solution to detect the system. We had worked out and designed a better system implementation used to sort out the problem by using affordable circuit design interfacing with user friendly  web applications deployed with ML integrated techniques, and data transforming through better communication systems.
 
 
 
 
-
-
-ABOUT DOCUMENTATION:
-
-This documentation describes the solution we have answered for detecting the faulty lines in transmission line systems. We have a good and better optimal solution to detect the system. We had worked out and designed a better system implementation used to sort out the problem by using affordable circuit design interfacing with user friendly  web applications deployed with ML integrated techniques, and data transforming through better communication systems.
-INTRODUCTION:
-                     The trends in technology have been increasing very fast and providing keen ideas to vast solutions.Overline  breaking is an issue that causes problems for KSEB in terms of providing uninterrupted power supply to the households.The line breakage could be due several factors such as tolerances or fluctuations in current and   voltages,  natural factors such as high winds, falling trees  or due to other reasons like corrosion.The transmission line faults in transmission system are frequent and the detection of the faulty line is not handy task.  These kinds of damages put the people in risk, so we need to boost up our transmission systems to send the information about the faulty lines.
-We are going to solve this issue by detecting, classifying and locating the fault occured in the Transmission Power Systems. We are also going to use an Electronic Embedded System in order to collect the sensor data and send it to a respective Website for Analysis alerting !!!.
-Goals:
-1.Hardware Integration and Development
-2.Website Development 
-3.Machine Learning Modelling
-System Architecture
+# INTRODUCTION:
+              The trends in technology have been increasing very fast and providing keen ideas to vast solutions.Overline  breaking is an issue that causes problems for KSEB in terms of providing uninterrupted power supply to the households.The line breakage could be due several factors such as tolerances or fluctuations in current and   voltages,  natural factors such as high winds, falling trees  or due to other reasons like corrosion.The transmission line faults in transmission system are frequent and the detection of the faulty line is not handy task.  These kinds of damages put the people in risk, so we need to boost up our transmission systems to send the information about the faulty lines.
+        We are going to solve this issue by detecting, classifying and locating the fault occured in the Transmission Power Systems. We are also going to use an Electronic Embedded System in order to collect the sensor data and send it to a respective Website for Analysis alerting !!!.
+## Goals:
+# 1.Hardware Integration and Development
+# 2.Website Development 
+# 3.Machine Learning Modelling
+                                                        System Architecture
 							Fig: Block Diagram 
- The above block diagram shows schematic representation of  the systems.Here the sensor data is collected from voltage sensors and current sensors ,from high voltage transmission lines and the location (longitude,latitude values) is  collected using GPS Module.All these sensor data from sensors is collected to the PIC16F877A microcontroller. The power to the microcontroller is supplied by stepping down the high 220vAC to 5v DC using an SMPS(Switch Power Mode Supply) Module. Then this sensor data is sent to a Machine learning Deployed Server using a GSM(Global System for Mobile Communications) module through a GPRS(General Packet Radio Service) Network. After this the user needs to register in the respective website and log into it and check his details.The machine learning model will analyze the sensor data and detect,classify and locate the fault in the power lines and alert the user in the Department. Users can inform the worker about the type and location of fault and make the fault repair. 
+ 		The above block diagram shows schematic representation of  the systems.Here the sensor data is collected from voltage sensors and current sensors ,from high voltage transmission lines and the location (longitude,latitude values) is  collected using GPS Module.All these sensor data from sensors is collected to the PIC16F877A microcontroller. The power to the microcontroller is supplied by stepping down the high 220vAC to 5v DC using an SMPS(Switch Power Mode Supply) Module. Then this sensor data is sent to a Machine learning Deployed Server using a GSM(Global System for Mobile Communications) module through a GPRS(General Packet Radio Service) Network. After this the user needs to register in the respective website and log into it and check his details.The machine learning model will analyze the sensor data and detect,classify and locate the fault in the power lines and alert the user in the Department. Users can inform the worker about the type and location of fault and make the fault repair. 
 Hardware Integration and Deployment                  
 Schematic Design of Hardware             
  
@@ -243,8 +239,8 @@ Website:
 → Bootstrap,CSS
 → Javascript
 
-Conclusion:
-We can use this  fault detection system anywhere using the website, the UI is enabled and secured as well ,electronics will be cost efficient and user friendly , the detection and alert system is done using software tools. We are working to improve this system by cutting off the power supply of the fault detected  transmission line by using relay modules in order to prevent others from getting harm from high voltage lines and Alerting with Buzzer. In future,our model can be extended by using  network connecting protocols like Zigbee and wifi which further helps decrease in the electronic modules.
+# Conclusion:
+	We can use this  fault detection system anywhere using the website, the UI is enabled and secured as well ,electronics will be cost efficient and user friendly , the detection and alert system is done using software tools. We are working to improve this system by cutting off the power supply of the fault detected  transmission line by using relay modules in order to prevent others from getting harm from high voltage lines and Alerting with Buzzer. In future,our model can be extended by using  network connecting protocols like Zigbee and wifi which further helps decrease in the electronic modules.
 
 
 
