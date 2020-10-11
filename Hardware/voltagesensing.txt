@@ -1,0 +1,38 @@
+float v;
+char txt[5];
+char txt1[5];
+void voltage_READ(void)
+ {
+ float max;
+ int i;
+ int t[40];
+ ADCON0.ADON=1;
+ for(i=0; i<=39; i++)
+ {
+ v= ADC_Read(0); //Digital value convert
+ v =v*(10.0/1023.0);
+ v=(v-5.0);
+ t[i]=v*110.1909091;
+ }
+ 
+ ADCON0.ADON=0;
+ max=t[0];
+ for(i=0; i<=39; i++)
+ {
+ if(max<t[i])
+ max=t[i];
+ }
+ max=max*.707106781;
+ delay_ms(1000);
+ }
+ 
+void main()
+{
+ ADCON0.ADCS1=1;
+ ADCON0.ADCS1=0;
+ ADCON0.ADON=0; 
+ while(1)
+ {
+ voltage_READ();
+ }
+}

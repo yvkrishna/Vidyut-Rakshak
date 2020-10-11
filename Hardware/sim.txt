@@ -1,0 +1,28 @@
+printf("AT+CREG?\r\n");
+printf("AT+CGATT=1\r\n"); // Attach to GPRS
+__delay_ms(2000);
+printf("AT+SAPBR=1,1\r\n"); // Open a GPRS context
+__delay_ms(2000);
+printf("AT+SAPBER=2,1\r\n");  // To query the GPRS context
+// Function that sends temperature and humidity to my server.
+void gsm_send_data(void)
+{
+    printf("AT+HTTPINIT\r\n");                  // Initialize HTTP
+    __delay_ms(1000);
+    printf("AT+HTTPPARA=\"URL\",\"http://INSERT_YOUR_SERVER_HERE/add_voltage.php?v="); // Send PARA command
+    __delay_ms(50);
+    printf(voltage);   // Add voltage to the url
+    __delay_ms(50);
+    printf("&c=");  
+    __delay_ms(50);
+    printf(current);   // Add current to url
+    __delay_ms(50);
+    printf("\"\r\n");   // close url
+    __delay_ms(2000);
+    printf("AT+HTTPPARA=\"CID\",1\r\n");    // End the PARA
+    __delay_ms(2000); 
+    printf("AT+HTTPACTION=0\r\n");
+    __delay_ms(3000);    
+    printf("AT+HTTPTERM\r\n");
+    __delay_ms(3000);       
+}
