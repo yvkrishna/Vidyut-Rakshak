@@ -1,0 +1,34 @@
+<?php
+
+$servername = "localhost".
+
+$usernane = "xxxrootxxx":
+
+$password = "xxxpasswordxxx",
+
+$dbname = " abyudaya”:
+
+$temp - $_GET["v"]; 
+$hum = $_GET["c"]:
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+If ($conn->connect_error) {
+
+die ("connection failed - $conn->connect_error); 
+}
+
+$sql ="INSERT INTO voltage (voltage, current) VALUES ($voltage, $current)";
+
+If ($conn->query($sql) == TRUE) {
+
+echo "New record created successfully. <br>";
+
+} 
+else{
+ echo "Error:” . $sql. "<br>". $conn->error;
+
+$conn->close();
+
+echo "connected successfully. ";
+?>

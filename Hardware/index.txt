@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Voltage and Current  on abhyudaya</title>
+
+</head>
+
+<body>
+
+<center>
+
+<h1>Voltage and current onboard. </h1>
+
+<h2>Last 16 readings.</h2>
+
+<div id="voltagecurrent"><img src="1 graph.php" width="520" height="280"></div>
+
+</center>
+
+</body>
+
+</html>
+
+As you can see from the above code, the DIV tag calls 1_graph.php.
+<?php
+include(‘../phpgraph/phpgraphlib.php’);
+
+
+$servername="localhost";
+$username="xxxrootuserxxx";
+$password =”xxxpasswordxxx";
+$dbname=”abhyudaya”;
+
+$connection = mysqli_connect($servernane, $username, $password, Sdbname) or die ("Error ". mysqli_error($connection));
+
+$currentarray =array();
+
+$voltagearray = array();
+
+$sql="SELECT * FROM volatge ORDER By Time DESC LIMIT 10":
+
+$result mysqli_query($connection, $sql) or die ("Error in selecting”. mysqli_error($connection));
+
+if($result){
+
+while($row= mysqli_fetch_assoc($result)) {
+
+$time =$row[“Time"];
+$count =$row[“voltage"];
+$voltagearray[$time]=$count;
+$count=$row["current”];
+$currentarray[$time]= $count;
+}
+}
+$graph = new PHPGraphLib(520, 280); 
+$graph->addData($voltagearray, $currentarray);
+$graph->setTitle("Voltage and Current");
+$graph->setTitleLocation('left');
+$graph->setupYAxis(12, ‘blue');
+
+$graph->setupXAxis(20);
+$graph->setBarColor('green', 'blue');
+$graph->setDataValues(true);
+$graph->setDataValueColor('red');
+$graph->setLegend(true);
+$graph->setLegendOutlineColor('white');
+$graph->setLegendTitle('Voltage’, ‘current’);
+$graph->setXValuesHorizontal(false);
+$graph->create Graph();
+?>
+//This is the 1_graph.php file, which connects to the MySQL database, extract the relevant data, and create the diagram.
+Here is a brief explanation of what is going on in this file:
+The first line includes the library files. Then I fill the variables with data and use those variables to connect to the database with the mysqli_connect command.
+Since this module is going to regularly update the database, I want to show only the last 10 readings. This is done by sorting the table as descending based on the Time column and limiting it to 10. The next lines extract the data and fill two arrays.
+The last block of code is related to making and displaying the graph
+//
+
+
+
+

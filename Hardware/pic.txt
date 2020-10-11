@@ -1,0 +1,44 @@
+float v;  // variable to store results
+
+// This function reads the maximum voltage
+// across shunt resistor and finds the peak
+// of ac voltage which will appear 
+// across the shunt resistor. 
+void current_READ(void)
+{
+float max;
+int i,current;
+int t[40];
+ADCON0.ADON=1;
+for(i=0; i<=39; i++)
+{
+v= ADC_Read(1);
+v =v*(10.0/1023.0);
+v=(v-5.0);
+t[i]=v*10;
+}
+
+ADCON0.ADON=0;
+max=t[0];
+for(i=0; i<=39; i++)
+{
+if(max<t[i])
+max=t[i];
+}
+max=max*.707106781;   // convert peak into RMS
+delay_ms(1000);
+}
+
+void main()
+{
+ADCON0.ADCS0=1;     
+ADCON0.ADCS1=1;
+ADCON1.ADCS2=1;
+ADCON0.ADON=0;
+
+while(1)
+{
+current_READ();               // call current_READ() function to measure current 
+delay_ms(1000);
+}
+}

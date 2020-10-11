@@ -1,55 +1,59 @@
-Team-Abhyudaya        
+
+# Vidyut Rakshak
+--- 
+<p align="center">
+    <img src="https://www.thinkright.me/wp-content/uploads/2018/11/28.png" alt="OCR" width="200"  height="165">
+</p>
+
+<h3 align="center">FAULT LINE DETECTION IN TRANSMISSION SYSTEM</h3>
+
+
+
+# Team Abyudaya:
+We are team Abhudaya from  Amrita Vishwa Vidyapeetham,Kollam currently pursuing  Electronics and Communication Engineering.<br>
+ Esarapu Dilip Vignesh<br>
+ Vedhakrishna  Yarasuri<br>
+ Dhumsapuram Saikrishna Reddy<br>
+ Gowtham Kishore Indukuri<br>       
 	
--- When Something is important enough , we do it even if the odds are not in favour.  
        
 
 
+# ABOUT DOCUMENTATION: 
+          This documentation describes the solution we have answered for detecting the faulty lines in transmission line systems. We have a good and better optimal solution to detect the system. We had worked out and designed a better system implementation used to sort out the problem by using affordable circuit design interfacing with user friendly  web applications deployed with ML integrated techniques, and data transforming through better communication systems.
 
- FAULT LINE DETECTION IN      TRANSMISSION  SYSTEM
 
-THE TEAM:
- Esarapu Dilip Vignesh
- Vedhakrishna  Yarasuri
- Dhumsapuram Saikrishna Reddy
- Gowtham Kishore Indukuri
 
-TEAM INTRO:
 
-We are team Abhudaya from  Amrita Vishwa Vidyapeetham,Kollam
-currently pursuing  Electronics and Communication Engineering.
-
-ABOUT DOCUMENTATION:
-
-This documentation describes the solution we have answered for detecting the faulty lines in transmission line systems. We have a good and better optimal solution to detect the system. We had worked out and designed a better system implementation used to sort out the problem by using affordable circuit design interfacing with user friendly  web applications deployed with ML integrated techniques, and data transforming through better communication systems.
-INTRODUCTION:
-                     The trends in technology have been increasing very fast and providing keen ideas to vast solutions.Overline  breaking is an issue that causes problems for KSEB in terms of providing uninterrupted power supply to the households.The line breakage could be due several factors such as tolerances or fluctuations in current and   voltages,  natural factors such as high winds, falling trees  or due to other reasons like corrosion.The transmission line faults in transmission system are frequent and the detection of the faulty line is not handy task.  These kinds of damages put the people in risk, so we need to boost up our transmission systems to send the information about the faulty lines.
-We are going to solve this issue by detecting, classifying and locating the fault occured in the Transmission Power Systems. We are also going to use an Electronic Embedded System in order to collect the sensor data and send it to a respective Website for Analysis alerting !!!.
-Goals:
+# INTRODUCTION:
+              The trends in technology have been increasing very fast and providing keen ideas to vast solutions.Overline  breaking is an issue that causes problems for KSEB in terms of providing uninterrupted power supply to the households.The line breakage could be due several factors such as tolerances or fluctuations in current and   voltages,  natural factors such as high winds, falling trees  or due to other reasons like corrosion.The transmission line faults in transmission system are frequent and the detection of the faulty line is not handy task.  These kinds of damages put the people in risk, so we need to boost up our transmission systems to send the information about the faulty lines.
+        We are going to solve this issue by detecting, classifying and locating the fault occured in the Transmission Power Systems. We are also going to use an Electronic Embedded System in order to collect the sensor data and send it to a respective Website for Analysis alerting !!!.
+# Goals:
 1.Hardware Integration and Development
-2.Website Development 
-3.Machine Learning Modelling
-System Architecture
+ 2.Website Development 
+ 3.Machine Learning Modelling
+                                                        System Architecture
 							Fig: Block Diagram 
- The above block diagram shows schematic representation of  the systems.Here the sensor data is collected from voltage sensors and current sensors ,from high voltage transmission lines and the location (longitude,latitude values) is  collected using GPS Module.All these sensor data from sensors is collected to the PIC16F877A microcontroller. The power to the microcontroller is supplied by stepping down the high 220vAC to 5v DC using an SMPS(Switch Power Mode Supply) Module. Then this sensor data is sent to a Machine learning Deployed Server using a GSM(Global System for Mobile Communications) module through a GPRS(General Packet Radio Service) Network. After this the user needs to register in the respective website and log into it and check his details.The machine learning model will analyze the sensor data and detect,classify and locate the fault in the power lines and alert the user in the Department. Users can inform the worker about the type and location of fault and make the fault repair. 
+ 		The above block diagram shows schematic representation of  the systems.Here the sensor data is collected from voltage sensors and current sensors ,from high voltage transmission lines and the location (longitude,latitude values) is  collected using GPS Module.All these sensor data from sensors is collected to the PIC16F877A microcontroller. The power to the microcontroller is supplied by stepping down the high 220vAC to 5v DC using an SMPS(Switch Power Mode Supply) Module. Then this sensor data is sent to a Machine learning Deployed Server using a GSM(Global System for Mobile Communications) module through a GPRS(General Packet Radio Service) Network. After this the user needs to register in the respective website and log into it and check his details.The machine learning model will analyze the sensor data and detect,classify and locate the fault in the power lines and alert the user in the Department. Users can inform the worker about the type and location of fault and make the fault repair. 
 Hardware Integration and Deployment                  
 Schematic Design of Hardware             
  
 	 	 	 	
-PIC16F877A Microcontroller
-We have used the PIC16F877 microcontroller because of its wide range of applications in diverse fields since it is readily available. It also has around 40 pins with a maximum of three functions per pin which makes it much easier to use as compared to others with limited pins and a high number of functions per pin. It’s optimal cost-to-performance ratio also brings us an added advantage.
-AC voltage Measurement using PIC16F877A Microcontroller
+                                                        PIC16F877A Microcontroller
+                                         We have used the PIC16F877 microcontroller because of its wide range of applications in diverse fields since it is readily available. It also has around 40 pins with a maximum of three functions per pin which makes it much easier to use as compared to others with limited pins and a high number of functions per pin. It’s optimal cost-to-performance ratio also brings us an added advantage.
+                                           AC voltage Measurement using PIC16F877A Microcontroller
 
-To measure 220V AC, you need to step down this voltage. Because microcontrollers can't measure voltage greater than 5V. If you give voltage more than 5V to the analog input of the microcontroller, it will get damaged permanently. To assure protection of microcontrollers, you will need to step down 220 volt AC into AC  voltage whose peak value should be less than 5V. For example , 220V AV means RMS voltage and its peak value is equal to 311 volt. similarly you have to step down high AC voltage in such a way that its peak value should not be greater than 5 volt.
-Potential Transformer can also be used to step down 220 Alteration voltage.But why do you want to spend more money? when you can do this with the help of cheap operational amplifiers and few resistors. Difference amplifier methods are more economical than potential transformers when you want to step down voltage less than 400 volt AC.
-Difference Amplifier circuit
-Difference amplifier is used to amplify voltage from two voltage levels.In case of Alternating voltage we have two voltage levels one is positive with respect to neutral and other is negative with respect to neutral.You can adjust the gain of difference amplifier according to our requirement by selecting proper  values of resistors.In this project gain is equal to :
-Gain=  R8/(R1+ R2+ R3)  ;
-In Alternating voltage case the second voltage level is zero. Because during positive cycle and negative cycle other side is considered zero or neutral. So output voltage will be
-vout = gain * Vinput;
+                      To measure 220V AC, you need to step down this voltage. Because microcontrollers can't measure voltage greater than 5V. If you give voltage more than 5V to the analog input of the microcontroller, it will get damaged permanently. To assure protection of microcontrollers, you will need to step down 220 volt AC into AC  voltage whose peak value should be less than 5V. For example , 220V AV means RMS voltage and its peak value is equal to 311 volt. similarly you have to step down high AC voltage in such a way that its peak value should not be greater than 5 volt.
+                      Potential Transformer can also be used to step down 220 Alteration voltage.But why do you want to spend more money? when you can do this with the help of cheap operational amplifiers and few resistors. Difference amplifier methods are more economical than potential transformers when you want to step down voltage less than 400 volt AC.
+                                                        Difference Amplifier circuit
+              Difference amplifier is used to amplify voltage from two voltage levels.In case of Alternating voltage we have two voltage levels one is positive with respect to neutral and other is negative with respect to neutral.You can adjust the gain of difference amplifier according to our requirement by selecting proper  values of resistors.In this project gain is equal to :
+             Gain=  R8/(R1+ R2+ R3)  ;
+                 In Alternating voltage case the second voltage level is zero. Because during positive cycle and negative cycle other side is considered zero or neutral. So output voltage will be
+               vout = gain * Vinput;
 Difference amplifier to step down voltage
-In Above picture, resistors R1, R2, R3, R4, and R5 have high values which do not allow high voltage to appear across the op-amp. Because high input resistors are used that’s why microampere current will be low and this way power loss will be in kilowatts. According to difference amplifier gain formula our gain will be:
-gain=   (22K)/( 1.2M + 1.2M + 2.2K) = 0.0091
-NOTE:  you must make calculations according to the peak value of the sine wave. Because peak voltage is the maximum voltage input to microcontroller analog pin.So with a .0091 gain, with respect to peak voltage of sine wave output voltage from op-amp is :
+                  In Above picture, resistors R1, R2, R3, R4, and R5 have high values which do not allow high voltage to appear across the op-amp. Because high input resistors are used that’s why microampere current will be low and this way power loss will be in kilowatts. According to difference amplifier gain formula our gain will be:
+               gain=   (22K)/( 1.2M + 1.2M + 2.2K) = 0.0091
+                              NOTE:  you must make calculations according to the peak value of the sine wave. Because peak voltage is the maximum voltage input to microcontroller analog pin.So with a .0091 gain, with respect to peak voltage of sine wave output voltage from op-amp is :
                                       Vout = .0091 * 311 = 2.8301 volt (peak output voltage)
 As you see above figure we have connected other terminal of R7 to 5 volt instead of  ground as we do while using difference amplifier in many applications. R7 resistor is used to increase DC voltage level op-amp output. Sine waves have zero DC voltage level and  negative voltage cycle. Microcontrollers can not read negative voltage.So we increase the DC level of sine wave by 5 volt.In this way negative voltage will not appear across  microcontrollers. Now output peak voltage from op-amp is 5 + 2.8301 = 7.8301 volt. But as I have mentioned , microcontrollers can not measure voltage greater than 5 volt.So as shown in above figure we have used voltage divider to divide voltage by 2.Hence output voltage is:
                                                             Vout = 7.8301/2 =  3.90155;
@@ -59,13 +63,13 @@ Capacitors C1, C2, and C3 are used to filter harmonics from input voltage and to
 mean primary current of the transformer is 100 Amp and the secondary current is 10 Amp. you can not use this current transformer to measure more than 100 Amp.
 By measuring the secondary side low current, we can easily convert it into primary current value by using the current ratio formula. I will discuss in the latter part of this discussion how to use this step-down ratio in the programming part.
  
-How to convert current into voltage?
+# How to convert current into voltage?
 We cannot measure current directly. Firstly, we convert the secondary side current into voltage. We can use a known value of resistor load. We measure the voltage across this known resistor. After that, we can convert this measured voltage into the current. We can use ohm’s law formula to convert the voltage into the current.
 V=IR
 I = V/R
 As you can see in this circuit diagram, we use an R1 load resistor to convert current into voltage. In this circuit, a voltage divider is used. But we can also use an operational amplifier to step down the voltage across the load resistor.
 
-How to Measure the Secondary Side current of CT
+# How to Measure the Secondary Side current of CT
 Now we will see how to sense ac current with the secondary side. There are many methods to measure low alternating current; you can also measure it using AC ammeter. But if you want to perform some control operation and want to send a measured current value to another place. You have to use some kind of intelligent system.
 For example, you want to make a current protection circuit and circuit specification are followings
 if the current flowing through a line is greater than 100 Ampere, a control action  should be performed to operate a relay
@@ -86,15 +90,15 @@ then-current according to ohm law
                                                           I=8/.1=8A
 but the problem is the ADC of the pic microcontroller can never measure voltage greater than 5 volts. Therefore,  to solve this problem, we can use the difference amplifiers. Because, by adjusting the gain of the difference amplifier,  we can reduce voltage lower than 5 volts. The following diagram shows the circuit of CT and difference amplifier interfacing. you can use any op-amp such as LM741,TL074.
 
-Circuit diagram with pic microcontroller
+           Circuit diagram with pic microcontroller
 This is a circuit diagram of interfacing the current sensor with a pic microcontroller. Connect the secondary side of  CT to the points shown on the schematic. After that, Connect the shunt resistor in parallel with the current sensor. The difference amplifier circuit converts voltage below 5-volt magnitude.  It  also shifts the level of ac voltage from the negative side to the positive side. Connect output of difference amplifier with RA1 or analog channel one of PIC16F877A.
 
  
 
 
-Interfacing GPS Module with PIC16F877A Microcontroller
+# Interfacing GPS Module with PIC16F877A Microcontroller
 
-GPS is the short-form of the Global Positioning System. It is a system which provides accurate Altitude, Latitude, Longitude, UTC time and much more information, which are taken from 2, 3, 4 or more satellites. To read data from GPS, we need some Microcontroller.We have selected the G7020 GPS module which is made by U-blox. We will receive Longitude and latitude of a particular position from satellite .So here we will interface GPS with PIC16F877A microcontroller by microchip.
+	GPS is the short-form of the Global Positioning System. It is a system which provides accurate Altitude, Latitude, Longitude, UTC time and much more information, which are taken from 2, 3, 4 or more satellites. To read data from GPS, we need some Microcontroller.We have selected the G7020 GPS module which is made by U-blox. We will receive Longitude and latitude of a particular position from satellite .So here we will interface GPS with PIC16F877A microcontroller by microchip.
 U-Blox-G7020 GPS module, receive and transmit data using UART. PIC16F877A consists one USART driver inside the chip, we will receive data from GPS module by USART, so a cross connection will be made from the microcontroller Rx pin to GPS’s Tx pin and USART Receive pin connected across GPS’s Transmit pin.The uBlox-G7020 has color code for the pins. The Positive or 5V pin is in Red color, the Negative or GND pin is in Black color and the Transmit pin is in Blue color.
 Getting Location Data from GPS:
 Let’s see how to interface GPS using USART .The Module will transmit data in multiple strings at 9600 Baud Rate. If we use an UART terminal with 9600 Baud rate, we will see the data received by GPS.
@@ -195,12 +199,12 @@ We have created our own dataset with two features and two classes . Due to the l
 
              
 			Deployment
-In this section we present the concept of deployment of the model. The machine learning model trained using tensorflow is a python object and will be converted to JSON object which can be later used to deploy in the server. The converted JSON model consists of details regarding the layers of the neural network and its corresponding weights. These details will be used for making predictions on the server. We need to import the tensorflow js module for node js and load the layers and corresponding weights from the json object using tensorflow.js functions. Later we can able to make predictions using apis.  
+	In this section we present the concept of deployment of the model. The machine learning model trained using tensorflow is a python object and will be converted to JSON object which can be later used to deploy in the server. The converted JSON model consists of details regarding the layers of the neural network and its corresponding weights. These details will be used for making predictions on the server. We need to import the tensorflow js module for node js and load the layers and corresponding weights from the json object using tensorflow.js functions. Later we can able to make predictions using apis.  
 
 We have implemented Rest Api service for this work. Using the Express module we are able to create routes and api. The hardware would make GET requests to the server to the route which we created and will pass the voltage and current readings. Later these readings are used for making inferences from the server. The server will make inference from the obtained readings from the api. If the prediction is anomaly then the server responds with the anomaly message or else with a normal message. ( We are facing a problem in loading the model ).
 
 
-Fig : The model response to the input data sent by the hardware
+		Fig : The model response to the input data sent by the hardware
 According to the results of the server, i.e if the anomaly was detected then the hardware will call for another api sending its location coordinates and the error name and description respectively and this data will be stored in mongodb and later used in displaying in the web application.
 
 
@@ -209,13 +213,15 @@ Fig : The error location has been saved to the Mongodb Database.
 
 Fig : The error details from the database displayed onto the web application.
  
-The basic requirement needed to build this system is MongoDB database, Nodejs, Bootstrap. First we need to create a basic login form using login.html file. 
-Html is used for the basic web page login and register page. Bootstrap is a frontend framework which we used for web page designing. This is used for the easier and faster creation of web pages.  In this system, the password is encrypted. This password is secured with the passport software. Look of the webpage gets more attractive using features in the frontend framework. For backend framework, node.js is used in this system. Node.js allows the creation of Web servers and networking tools using JavaScript and a collection of "modules" that handle various core functionalities. Node.js is an open source and executes javascript in webbrowser. When a user is logged into the webpage, his details are tested with the database from the Electrical department. For this,MongoDB is used . MongoDB is a document-oriented NoSQL database used for high volume data storage. MongoDB makes use of collections and documents. From these collection sets, details of the user are verified and allowed to webpage with his own credentials.
+			The basic requirement needed to build this system is MongoDB database, Nodejs, Bootstrap. First we need to create a basic login form using login.html file. 
+			Html is used for the basic web page login and register page. Bootstrap is a frontend framework which we used for web page designing. This is used for the easier and faster creation of web pages.  In this system, the password is encrypted. This password is secured with the passport software. Look of the webpage gets more attractive using features in the frontend framework. For backend framework, node.js is used in this system. Node.js allows the creation of Web servers and networking tools using JavaScript and a collection of "modules" that handle various core functionalities. Node.js is an open source and executes javascript in webbrowser. When a user is logged into the webpage, his details are tested with the database from the Electrical department. For this,MongoDB is used . MongoDB is a document-oriented NoSQL database used for high volume data storage. MongoDB makes use of collections and documents. From these collection sets, details of the user are verified and allowed to webpage with his own credentials.
 
-Advantages:                       
-Using this system we can decrease the time in finding the fault, classify, locate  the respective transmission line and send the accurate fault  area location to the operator. Powerback up to the system is done by using a rechargeable battery. And the user’s interface is easily accessible and secured for the respective users of the department. This can also reduce the inappropriate disturbances of power cuts for large amounts of time for the people staying in the surrounding areas of the fault.
-Technologies Used:
-Electronics:
+# Advantages:                       
+			Using this system we can decrease the time in finding the fault, classify, locate  the respective transmission line and send the accurate fault  area location to the operator. Powerback up to the system is done by using a rechargeable battery. And the user’s interface is easily accessible and secured for the respective users of the department. This can also reduce the inappropriate disturbances of power cuts for large amounts of time for the people staying in the surrounding areas of the fault.
+
+
+
+# Technologies Used:
 → PIC Microcontroller and Sensors
 → SMPS(step down high voltage)
 → GSM (transfer sensor data)
@@ -234,8 +240,10 @@ Website:
 → Bootstrap,CSS
 → Javascript
 
-Conclusion:
-We can use this  fault detection system anywhere using the website, the UI is enabled and secured as well ,electronics will be cost efficient and user friendly , the detection and alert system is done using software tools. We are working to improve this system by cutting off the power supply of the fault detected  transmission line by using relay modules in order to prevent others from getting harm from high voltage lines and Alerting with Buzzer. In future,our model can be extended by using  network connecting protocols like Zigbee and wifi which further helps decrease in the electronic modules.
+
+
+# Conclusion:
+	We can use this  fault detection system anywhere using the website, the UI is enabled and secured as well ,electronics will be cost efficient and user friendly , the detection and alert system is done using software tools. We are working to improve this system by cutting off the power supply of the fault detected  transmission line by using relay modules in order to prevent others from getting harm from high voltage lines and Alerting with Buzzer. In future,our model can be extended by using  network connecting protocols like Zigbee and wifi which further helps decrease in the electronic modules.
 
 
 
