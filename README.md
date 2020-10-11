@@ -11,10 +11,10 @@
 
 # Team Abyudaya:
 We are team Abhudaya from  Amrita Vishwa Vidyapeetham,Kollam currently pursuing  Electronics and Communication Engineering.<br>
- Esarapu Dilip Vignesh<br>
- Vedhakrishna  Yarasuri<br>
- Dhumsapuram Saikrishna Reddy<br>
- Gowtham Kishore Indukuri<br>       
+<p align="center">Esarapu Dilip Vignesh</p><br>
+<p align="center">Vedhakrishna  Yarasuri</p><br>
+<p align="center">Dhumsapuram Saikrishna Reddy</p><br>
+<p align="center">Gowtham Kishore Indukuri</p><br>       
 	
        
 
