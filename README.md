@@ -1,9 +1,8 @@
-<p align="center">
+
 # Vidyut Rakshak
-	</p>
 --- 
 <p align="center">
-    <img src="https://store-images.s-microsoft.com/image/apps.4294.13510798886736958.a650f2a3-9e4d-4aeb-8aff-d1ce5d232c80.cf7f9fcd-4d78-4d3f-8a03-98ed771f89c1" alt="OCR" width="200"  height="165">
+    <img src="https://www.thinkright.me/wp-content/uploads/2018/11/28.png" alt="OCR" width="200"  height="165">
 </p>
 
 <h3 align="center">Optical Character Recognition (OCR)</h3>
